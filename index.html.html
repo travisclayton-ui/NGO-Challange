@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nandala NGO Decision Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --color-bg:#f7f6f2; --color-surface:#f9f8f5; --color-surface-2:#fbfbf9; --color-surface-offset:#edeae5; --color-border:#d4d1ca; --color-divider:#ddd8cf; --color-text:#28251d; --color-text-muted:#706d67; --color-text-faint:#a7a39c; --color-primary:#01696f; --color-primary-hover:#0c4e54; --color-success:#437a22; --color-warning:#964219; --color-blue:#006494; --color-purple:#7a39bb; --radius-sm:.375rem; --radius-md:.5rem; --radius-lg:.75rem; --radius-xl:1rem; --shadow-sm:0 1px 2px rgba(40,37,29,.06); --shadow-md:0 8px 24px rgba(40,37,29,.08); --shadow-lg:0 18px 48px rgba(40,37,29,.12);
+      --font-display:'Instrument Serif', Georgia, serif; --font-body:'Inter', sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg:#171614; --color-surface:#1c1b19; --color-surface-2:#201f1d; --color-surface-offset:#252321; --color-border:#393836; --color-divider:#2a2927; --color-text:#cdccca; --color-text-muted:#97948f; --color-text-faint:#6d6a66; --color-primary:#4f98a3; --color-primary-hover:#227f8b; --color-success:#6daa45; --color-warning:#bb653b; --color-blue:#5591c7; --color-purple:#a86fdf; --shadow-sm:0 1px 2px rgba(0,0,0,.2); --shadow-md:0 8px 24px rgba(0,0,0,.24); --shadow-lg:0 18px 48px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth}
+    body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 8%, transparent), transparent 30%), var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.05;text-wrap:balance}
+    p{max-width:72ch;text-wrap:pretty}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .app{max-width:1180px;margin:0 auto;padding:var(--space-4)}
+    .skip-link{position:absolute;left:-9999px;top:auto}
+    .skip-link:focus{left:var(--space-4);top:var(--space-4);background:var(--color-surface);padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);border:1px solid var(--color-border);z-index:1000}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding:var(--space-4) 0 var(--space-6)}
+    .brand{display:flex;align-items:center;gap:var(--space-3);font-weight:800;letter-spacing:.01em}
+    .brand svg{width:36px;height:36px;color:var(--color-primary)}
+    .top-actions{display:flex;align-items:center;gap:var(--space-3)}
+    .icon-btn,.secondary-btn,.primary-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);border-radius:999px;padding:0 var(--space-4);transition:transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease}
+    .icon-btn{min-width:44px;padding:0;border:1px solid var(--color-border);background:var(--color-surface)}
+    .secondary-btn{border:1px solid var(--color-border);background:var(--color-surface)}
+    .primary-btn{background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm)}
+    .icon-btn:hover,.secondary-btn:hover{background:var(--color-surface-2);transform:translateY(-1px)}
+    .primary-btn:hover{background:var(--color-primary-hover);transform:translateY(-1px)}
+    .layout{display:grid;grid-template-columns:320px 1fr;gap:var(--space-6);align-items:start}
+    .panel{background:color-mix(in srgb, var(--color-surface) 92%, transparent);backdrop-filter:blur(10px);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md)}
+    .sidebar{position:sticky;top:var(--space-4);padding:var(--space-5)}
+    .sidebar h2{font-size:var(--text-lg);margin-bottom:var(--space-2)}
+    .sidebar .small{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .metrics{display:grid;gap:var(--space-3);margin-top:var(--space-5)}
+    .metric{padding:var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface-2)}
+    .metric-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-2);font-size:var(--text-sm)}
+    .metric strong{font-size:var(--text-base)}
+    .bar{height:10px;border-radius:999px;background:var(--color-surface-offset);overflow:hidden}
+    .fill{height:100%;width:50%;border-radius:inherit;transition:width .5s cubic-bezier(.16,1,.3,1), background .3s ease}
+    .progress-wrap{margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px solid var(--color-divider)}
+    .stage-dots{display:grid;grid-template-columns:repeat(7,1fr);gap:var(--space-2);margin-top:var(--space-3)}
+    .dot{height:10px;border-radius:999px;background:var(--color-surface-offset);position:relative;overflow:hidden}
+    .dot.active,.dot.done{background:color-mix(in srgb, var(--color-primary) 18%, var(--color-surface-offset))}
+    .dot.done::after,.dot.active::after{content:"";position:absolute;inset:0;background:var(--color-primary)}
+    .dot.active::after{opacity:.45}
+    .dot.done::after{opacity:1}
+    .main{min-width:0}
+    .hero{padding:var(--space-6);margin-bottom:var(--space-6);display:grid;gap:var(--space-5)}
+    .eyebrow{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:var(--color-primary)}
+    .hero h1{font-size:var(--text-2xl);max-width:12ch}
+    .hero p{color:var(--color-text-muted)}
+    .cards{display:grid;gap:var(--space-6)}
+    .screen{padding:var(--space-6)}
+    .screen-top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-5)}
+    .tag{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--color-primary)}
+    .tradeoff{font-size:var(--text-sm);color:var(--color-text-muted);max-width:30ch}
+    .prompt{display:grid;gap:var(--space-4);margin-bottom:var(--space-5)}
+    .prompt-card,.feedback-card,.summary-card,.result-card{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5)}
+    .choices{display:grid;gap:var(--space-3)}
+    .choice{padding:var(--space-5);border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface);text-align:left;transition:transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease}
+    .choice:hover{transform:translateY(-2px);border-color:color-mix(in srgb, var(--color-primary) 35%, var(--color-border));box-shadow:var(--shadow-sm)}
+    .choice.selected{border-color:var(--color-primary);background:color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));box-shadow:var(--shadow-sm)}
+    .choice.dimmed{opacity:.55}
+    .choice .label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.12em;color:var(--color-primary);font-weight:800;margin-bottom:.25rem}
+    .choice strong{display:block;font-size:var(--text-lg);font-family:var(--font-body);line-height:1.25;margin-bottom:.35rem}
+    .feedback-area{display:none;grid-template-columns:1.1fr .9fr;gap:var(--space-4);margin-top:var(--space-5)}
+    .feedback-area.visible{display:grid}
+    .feedback-card h3,.summary-card h3,.result-card h3{font-size:var(--text-lg);margin-bottom:var(--space-3)}
+    .feedback-card p + p,.summary-card p + p{margin-top:var(--space-3)}
+    .impact-list{list-style:none;display:grid;gap:var(--space-2)}
+    .impact-list li{position:relative;padding-left:1rem}
+    .impact-list li::before{content:"•";position:absolute;left:0;color:var(--color-primary);font-weight:800}
+    .footer-actions{display:flex;justify-content:space-between;align-items:center;gap:var(--space-3);margin-top:var(--space-5);flex-wrap:wrap}
+    .status{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .results-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);margin-top:var(--space-5)}
+    .result-card.active{border-color:var(--color-primary);background:color-mix(in srgb, var(--color-primary) 9%, var(--color-surface-2))}
+    .mini-table{display:grid;gap:var(--space-3);margin-top:var(--space-4)}
+    .row{display:grid;grid-template-columns:120px 1fr auto;gap:var(--space-3);align-items:center;font-size:var(--text-sm)}
+    .row .track{height:10px;border-radius:999px;background:var(--color-surface-offset);overflow:hidden}
+    .row .track span{display:block;height:100%;border-radius:inherit}
+    .history{display:grid;gap:var(--space-3);margin-top:var(--space-4)}
+    .history-item{padding:var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface-2)}
+    .history-item h4{font-size:var(--text-sm);text-transform:uppercase;letter-spacing:.08em;color:var(--color-primary);margin-bottom:.35rem}
+    .hidden{display:none !important}
+    @media (max-width: 980px){.layout{grid-template-columns:1fr}.sidebar{position:static}.feedback-area,.results-grid{grid-template-columns:1fr}}
+    @media (max-width: 640px){.app{padding:var(--space-3)}.hero,.screen,.sidebar{padding:var(--space-4)}.hero h1{max-width:none}.topbar{align-items:flex-start}.row{grid-template-columns:1fr}.footer-actions{align-items:stretch}.primary-btn,.secondary-btn{width:100%}}
+    @media (prefers-reduced-motion: reduce){*{transition-duration:.01ms !important;animation-duration:.01ms !important;scroll-behavior:auto !important}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="app">
+    <header class="topbar" aria-label="Top controls">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4" aria-label="Nandala logo">
+          <path d="M10 46L24 18l8 16 8-12 14 24" />
+          <circle cx="24" cy="18" r="4" fill="currentColor" stroke="none" />
+          <path d="M8 52h48" />
+        </svg>
+        <span>Nandala NGO Decision Quiz</span>
+      </div>
+      <div class="top-actions">
+        <button class="secondary-btn" id="restartTop" type="button">Restart</button>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme">◐</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="panel sidebar" aria-label="Live score panel">
+        <h2>Wellbeing tracker</h2>
+        <p class="small">Each decision changes Health, Education, Income, Equity, and Resilience. Students can improve one area while weakening another.</p>
+        <div class="metrics" id="metrics"></div>
+        <div class="progress-wrap">
+          <div class="metric-row"><span>Stage progress</span><strong id="stageCounter">0 / 7</strong></div>
+          <div class="stage-dots" id="stageDots"></div>
+        </div>
+      </aside>
+
+      <main id="main" class="main">
+        <section class="panel hero" id="introScreen">
+          <p class="eyebrow">Year 10 Human Wellbeing</p>
+          <h1>Make development decisions like a real NGO team.</h1>
+          <p>You are working in Nandala, a rural district facing unsafe water, weak health services, low school attendance, insecure livelihoods, and growing regional inequality. After each decision, you will review the evidence and decide what the NGO should do next.</p>
+          <div class="prompt-card">
+            <p><strong>Goal:</strong> Build a pathway that improves wellbeing fairly and sustainably, not just quickly. Strong results usually come from balanced choices rather than flashy short-term wins.</p>
+          </div>
+          <div>
+            <button class="primary-btn" id="startBtn" type="button">Begin the project</button>
+          </div>
+        </section>
+
+        <section class="cards hidden" id="gameScreen" aria-live="polite"></section>
+
+        <section class="panel screen hidden" id="resultScreen">
+          <div class="screen-top">
+            <div>
+              <p class="tag">Final review</p>
+              <h2 id="resultTitle">Project outcome</h2>
+            </div>
+            <p class="tradeoff">National funders now review what your project actually achieved.</p>
+          </div>
+          <div class="result-card active" id="resultSummary"></div>
+          <div class="mini-table" id="scoreBreakdown"></div>
+          <div class="results-grid" id="endingCards"></div>
+          <div class="history" id="historyList"></div>
+          <div class="footer-actions">
+            <p class="status" id="resultStatus">Your final pathway is ready.</p>
+            <button class="primary-btn" id="restartBottom" type="button">Play again</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const metricsMeta = [
+      { key: 'health', label: 'Health', color: 'var(--color-success)' },
+      { key: 'education', label: 'Education', color: 'var(--color-blue)' },
+      { key: 'income', label: 'Income', color: 'var(--color-warning)' },
+      { key: 'equity', label: 'Equity', color: 'var(--color-primary)' },
+      { key: 'resilience', label: 'Resilience', color: 'var(--color-purple)' }
+    ];
+
+    const stages = [
+      {
+        stage: 1,
+        title: 'Unsafe water',
+        tradeoff: 'Health now vs productivity vs education access',
+        prompt: 'Families in Nandala rely on polluted river water. Children are often sick, women and girls spend hours collecting water, and many students miss school. Your NGO can fund one major first intervention. What should you do?',
+        options: [
+          {
+            id: 'A',
+            title: 'Install a bore pump and village taps',
+            text: 'Give households a safer nearby water source.',
+            feedback: 'Safe water reaches many households. Illness begins to fall and families spend less time collecting water. However, health services are still limited, so preventable disease remains a problem in remote areas.',
+            scores: { health: 2, education: 1, income: 0, equity: 1, resilience: 1 },
+            impacts: ['Individual: children get sick less often and carers save time each day.', 'Community: more households access safe water, but remote care is still weak.', 'Country: healthier communities can support stronger long-term development.']
+          },
+          {
+            id: 'B',
+            title: 'Build school toilets and handwashing stations',
+            text: 'Improve sanitation at the local school first.',
+            feedback: 'School sanitation improves and some students attend more regularly, especially girls. But most families still drink unsafe water at home, so children continue to get sick and attendance remains uneven.',
+            scores: { health: 1, education: 2, income: 0, equity: 1, resilience: 0 },
+            impacts: ['Individual: some students feel safer and more comfortable at school.', 'Community: attendance rises for part of the district, but disease remains widespread.', 'Country: education gains stay limited when home health conditions are still poor.']
+          },
+          {
+            id: 'C',
+            title: 'Expand farm irrigation channels',
+            text: 'Increase crop output and household income.',
+            feedback: 'Farm output rises for some households, but unsafe water remains a major problem. Children are still sick, attendance stays low, and the district’s long-term wellbeing improves only slightly.',
+            scores: { health: -1, education: -1, income: 2, equity: 0, resilience: 1 },
+            impacts: ['Individual: some farmers earn more, but many children remain unwell.', 'Community: disease continues to disrupt school and work.', 'Country: productivity gains are weakened by poor health outcomes.']
+          }
+        ],
+        bridge: 'Monitoring shows that one issue has improved, but Nandala still faces high levels of preventable illness. Your NGO now has to decide how to strengthen health care.'
+      },
+      {
+        stage: 2,
+        title: 'Limited health care',
+        tradeoff: 'Immediate treatment vs prevention vs access',
+        prompt: 'Even after your first intervention, many families still struggle to access health care. Children are missing school because of preventable illness, and villagers in remote areas say the district clinic is too far away. What should the NGO do next?',
+        options: [
+          {
+            id: 'A',
+            title: 'Fund a mobile health clinic',
+            text: 'Bring nurses and treatment to remote villages.',
+            feedback: 'Families receive treatment more quickly and remote villages feel included. Yet the mobile clinic is costly to run, and health problems may return if prevention stays weak.',
+            scores: { health: 2, education: 1, income: -1, equity: 1, resilience: 0 },
+            impacts: ['Individual: treatment becomes available faster in isolated areas.', 'Community: trust rises because services finally reach remote villages.', 'Country: the program helps quickly, but long-term cost pressure remains.']
+          },
+          {
+            id: 'B',
+            title: 'Run a vaccination and hygiene campaign',
+            text: 'Focus on prevention across the district.',
+            feedback: 'Vaccination and hygiene education reduce future illness and strengthen prevention. The results are less dramatic at first, but long-term health begins to improve more steadily.',
+            scores: { health: 2, education: 1, income: 0, equity: 1, resilience: 1 },
+            impacts: ['Individual: more children avoid preventable disease.', 'Community: prevention reduces pressure on fragile health services.', 'Country: a stronger prevention system supports sustainable development.']
+          },
+          {
+            id: 'C',
+            title: 'Repair the road to the district clinic',
+            text: 'Improve physical access to existing services.',
+            feedback: 'Reaching the clinic becomes easier for people near the road, but the poorest families still struggle with transport costs, and water-related illness continues.',
+            scores: { health: 1, education: 0, income: 1, equity: -1, resilience: 1 },
+            impacts: ['Individual: travel is easier for some, but not for the poorest households.', 'Community: access improves unevenly depending on location and transport costs.', 'Country: better infrastructure helps, but social barriers still limit wellbeing.']
+          }
+        ],
+        bridge: 'Clinic records improve, but school attendance is still inconsistent. Teachers report that illness, poor facilities, and staffing problems continue to keep students away.'
+      },
+      {
+        stage: 3,
+        title: 'Low school attendance',
+        tradeoff: 'Buildings vs attendance vs staffing',
+        prompt: 'More children are enrolled in school, but many are still absent. Girls say the facilities are unsafe or inadequate, some classrooms are crowded, and qualified teachers are hard to keep in Nandala. Which intervention should come next?',
+        options: [
+          {
+            id: 'A',
+            title: 'Upgrade classrooms',
+            text: 'Build and repair learning spaces.',
+            feedback: 'The school looks improved, but attendance does not rise as much as expected because sickness and sanitation barriers remain.',
+            scores: { health: 0, education: 1, income: 0, equity: 0, resilience: 0 },
+            impacts: ['Individual: students have better rooms but may still miss class.', 'Community: visible infrastructure improves morale, though the attendance problem stays partly unsolved.', 'Country: education spending is less effective when it misses key barriers.']
+          },
+          {
+            id: 'B',
+            title: 'Build a girls’ sanitation block',
+            text: 'Improve privacy, dignity, and safe attendance.',
+            feedback: 'More girls attend regularly, students spend more time at school, and the education benefits are broad even though the change is less visible than a new classroom block.',
+            scores: { health: 1, education: 2, income: 0, equity: 2, resilience: 0 },
+            impacts: ['Individual: girls gain dignity, safety, and stronger attendance.', 'Community: attendance becomes more reliable and inclusive.', 'Country: gender-sensitive school infrastructure strengthens human development.']
+          },
+          {
+            id: 'C',
+            title: 'Build teacher housing',
+            text: 'Help schools attract and retain staff.',
+            feedback: 'The school retains more teachers and staffing becomes steadier, but many students still miss class because daily attendance barriers are not fully solved.',
+            scores: { health: 0, education: 2, income: 0, equity: 0, resilience: 1 },
+            impacts: ['Individual: students gain more stable teaching over time.', 'Community: staffing improves, but attendance stays uneven.', 'Country: workforce quality improves, though access barriers remain.']
+          }
+        ],
+        bridge: 'Education is improving in some ways, but many families still say they cannot escape poverty. The NGO now has to decide how to strengthen the local economy.'
+      },
+      {
+        stage: 4,
+        title: 'Weak local economy',
+        tradeoff: 'Growth speed vs fairness vs long-term skills',
+        prompt: 'Families in Nandala want better livelihoods, not just services. Farmers struggle to sell produce, young people have few paid jobs, and poorer households say they are missing out on the gains. What should the NGO fund now?',
+        options: [
+          {
+            id: 'A',
+            title: 'Build a market access road',
+            text: 'Help local goods reach buyers faster.',
+            feedback: 'Trade improves quickly and some villages see stronger income, but places far from the road benefit less and inequality can widen.',
+            scores: { health: 0, education: 0, income: 2, equity: -1, resilience: 1 },
+            impacts: ['Individual: some producers earn more almost immediately.', 'Community: benefits cluster near transport links.', 'Country: faster growth can still deepen spatial inequality.']
+          },
+          {
+            id: 'B',
+            title: 'Offer microfinance loans',
+            text: 'Support small businesses and household enterprise.',
+            feedback: 'Small businesses grow for families who can take the risk, but the poorest households may be least able to borrow or repay.',
+            scores: { health: 0, education: 0, income: 2, equity: 0, resilience: 0 },
+            impacts: ['Individual: entrepreneurship grows for some families.', 'Community: informal business activity rises, but access is uneven.', 'Country: local enterprise improves, though fairness remains mixed.']
+          },
+          {
+            id: 'C',
+            title: 'Create job training programs',
+            text: 'Build longer-term work skills for young people.',
+            feedback: 'Short-term growth is slower, but more young people gain skills that can support the district over time.',
+            scores: { health: 0, education: 1, income: 1, equity: 1, resilience: 1 },
+            impacts: ['Individual: trainees gain skills even if income rises slowly.', 'Community: local capacity improves across a wider group.', 'Country: long-term human capital becomes stronger.']
+          }
+        ],
+        bridge: 'The economy shows signs of movement, but a dry season and rising food prices expose how fragile many households still are.'
+      },
+      {
+        stage: 5,
+        title: 'Household vulnerability',
+        tradeoff: 'Relief now vs resilience later',
+        prompt: 'A poor harvest and higher food prices put pressure on many households. Some families need immediate help, while others want stronger systems that will protect them from the next shock. How should the NGO respond?',
+        options: [
+          {
+            id: 'A',
+            title: 'Provide emergency food aid',
+            text: 'Deliver relief to families facing hunger now.',
+            feedback: 'Hunger falls immediately, but households remain highly exposed if the next shock comes soon.',
+            scores: { health: 1, education: 0, income: 0, equity: 1, resilience: -1 },
+            impacts: ['Individual: urgent needs are met quickly.', 'Community: immediate hardship eases, but future vulnerability remains.', 'Country: short-term relief helps, though structural resilience stays weak.']
+          },
+          {
+            id: 'B',
+            title: 'Build community water storage',
+            text: 'Improve access and drought preparedness.',
+            feedback: 'Water storage takes time to show results, but it improves drought readiness and supports more stable livelihoods later.',
+            scores: { health: 1, education: 0, income: 1, equity: 0, resilience: 2 },
+            impacts: ['Individual: daily water security improves over time.', 'Community: drought preparedness becomes stronger and more collective.', 'Country: resilience rises through stronger local systems.']
+          },
+          {
+            id: 'C',
+            title: 'Fund agricultural support',
+            text: 'Provide seeds, tools, and farming advice.',
+            feedback: 'Some farmers become more productive, but gains depend on rainfall and may miss non-farming households.',
+            scores: { health: 0, education: 0, income: 2, equity: 0, resilience: 1 },
+            impacts: ['Individual: some households raise farm output.', 'Community: farming areas benefit more than others.', 'Country: production rises, but inclusiveness depends on who farms.']
+          }
+        ],
+        bridge: 'Your evaluation finds that the main town has benefited more than outlying villages. Donors now ask whether your project is improving wellbeing fairly across the district.'
+      },
+      {
+        stage: 6,
+        title: 'Regional inequality',
+        tradeoff: 'Efficiency vs equity',
+        prompt: 'Project data shows stronger gains in the main town than in smaller surrounding villages. The NGO can now concentrate funds where success is already visible, spread support more widely, or prioritise the worst-off communities. Which approach should it take?',
+        options: [
+          {
+            id: 'A',
+            title: 'Invest more in the main town',
+            text: 'Build on visible momentum and faster results.',
+            feedback: 'Reported gains rise quickly, but excluded villages feel left behind and district inequality deepens.',
+            scores: { health: 0, education: 0, income: 1, equity: -2, resilience: 0 },
+            impacts: ['Individual: people in already-improving areas gain more support.', 'Community: excluded villages lose trust in the project.', 'Country: average results improve while inequality worsens.']
+          },
+          {
+            id: 'B',
+            title: 'Spread smaller projects across the district',
+            text: 'Give every village something.',
+            feedback: 'Coverage looks fairer, but the smaller investments sometimes fail to create deep change anywhere.',
+            scores: { health: 1, education: 1, income: 0, equity: 1, resilience: 0 },
+            impacts: ['Individual: more people receive some benefit.', 'Community: fairness improves, though impact can be shallow.', 'Country: broad coverage helps inclusion but may dilute effectiveness.']
+          },
+          {
+            id: 'C',
+            title: 'Target the worst-off villages first',
+            text: 'Focus on those most left behind.',
+            feedback: 'Progress appears slower in headline figures, but the district becomes more balanced and vulnerable communities gain the most.',
+            scores: { health: 1, education: 1, income: 0, equity: 2, resilience: 1 },
+            impacts: ['Individual: the most vulnerable households finally receive support.', 'Community: trust improves as exclusion is reduced.', 'Country: a fairer development path supports stronger long-term wellbeing.']
+          }
+        ],
+        bridge: 'National funders review your program and ask for evidence that the project has produced meaningful and sustainable gains.'
+      },
+      {
+        stage: 7,
+        title: 'National funding review',
+        tradeoff: 'Politics vs sustainability vs evidence',
+        prompt: 'Your NGO must now report to national funders. Some team members want to highlight only the quickest visible wins. Others argue that the report should show trade-offs, uneven outcomes, and the need for more time. What should the NGO do?',
+        options: [
+          {
+            id: 'A',
+            title: 'Showcase only quick wins',
+            text: 'Present the strongest short-term results.',
+            feedback: 'The report looks impressive, but hidden weaknesses may shape poor future decisions and reduce sustainability.',
+            scores: { health: 0, education: 0, income: 1, equity: -1, resilience: -1 },
+            impacts: ['Individual: some gains are celebrated, but unmet needs are hidden.', 'Community: local weaknesses risk being ignored.', 'Country: future policy may repeat mistakes because the evidence is incomplete.']
+          },
+          {
+            id: 'B',
+            title: 'Present balanced evidence',
+            text: 'Show gains, gaps, and trade-offs honestly.',
+            feedback: 'Funders receive a fuller picture of what worked, what did not, and what still needs attention. This supports more coherent long-term planning.',
+            scores: { health: 0, education: 0, income: 0, equity: 1, resilience: 2 },
+            impacts: ['Individual: real needs stay visible in future decisions.', 'Community: honest reporting protects more balanced planning.', 'Country: evidence-informed policy becomes more likely.']
+          },
+          {
+            id: 'C',
+            title: 'Ask for more time before review',
+            text: 'Delay the final judgement and keep working.',
+            feedback: 'The NGO protects itself from oversimplifying the evidence, but some funders may worry that progress has been too slow or poorly explained.',
+            scores: { health: 0, education: 0, income: -1, equity: 0, resilience: 1 },
+            impacts: ['Individual: unresolved needs may keep receiving attention.', 'Community: more time can help, but uncertainty remains.', 'Country: longer review periods can support learning if accountability stays strong.']
+          }
+        ],
+        bridge: 'The project ends. Your final wellbeing scores now show what kind of development pathway you created in Nandala.'
+      }
+    ];
+
+    const outcomeCards = [
+      {
+        key: 'balanced',
+        title: 'Effective and balanced response',
+        text: 'Your decisions improved wellbeing across health, education, livelihoods, equity, and resilience in a relatively balanced way. Nandala made slower progress in some areas, but the district became fairer and more sustainable overall.'
+      },
+      {
+        key: 'gaps',
+        title: 'Progress with important gaps',
+        text: 'Your pathway improved several areas, but one or two key dimensions lagged behind. The district is better off, yet major barriers remain for some people or places.'
+      },
+      {
+        key: 'uneven',
+        title: 'Uneven development',
+        text: 'Your project produced visible gains, but the benefits were not shared fairly. Some groups improved while others were left behind, making inequality a central outcome.'
+      },
+      {
+        key: 'shortterm',
+        title: 'Short-term gains, weak long-term wellbeing',
+        text: 'Your NGO achieved a few quick results, but the district remained vulnerable and key structural problems were not solved. The pathway looked active, yet long-term wellbeing stayed fragile.'
+      }
+    ];
+
+    let state = {};
+
+    const introScreen = document.getElementById('introScreen');
+    const gameScreen = document.getElementById('gameScreen');
+    const resultScreen = document.getElementById('resultScreen');
+    const metricsEl = document.getElementById('metrics');
+    const stageDotsEl = document.getElementById('stageDots');
+    const stageCounterEl = document.getElementById('stageCounter');
+    const resultTitleEl = document.getElementById('resultTitle');
+    const resultSummaryEl = document.getElementById('resultSummary');
+    const scoreBreakdownEl = document.getElementById('scoreBreakdown');
+    const endingCardsEl = document.getElementById('endingCards');
+    const historyListEl = document.getElementById('historyList');
+    const resultStatusEl = document.getElementById('resultStatus');
+
+    function initialState() {
+      return {
+        currentStage: 0,
+        scores: { health: 0, education: 0, income: 0, equity: 0, resilience: 0 },
+        history: []
+      };
+    }
+
+    function setupShell() {
+      metricsEl.innerHTML = metricsMeta.map(metric => `
+        <div class="metric">
+          <div class="metric-row"><span>${metric.label}</span><strong id="score-${metric.key}">0</strong></div>
+          <div class="bar"><div class="fill" id="fill-${metric.key}" style="background:${metric.color}; width:50%"></div></div>
+        </div>
+      `).join('');
+      stageDotsEl.innerHTML = stages.map((_, i) => `<div class="dot" id="dot-${i}"></div>`).join('');
+      endingCardsEl.innerHTML = outcomeCards.map(card => `
+        <article class="result-card" data-outcome="${card.key}">
+          <h3>${card.title}</h3>
+          <p>${card.text}</p>
+        </article>
+      `).join('');
+    }
+
+    function renderTracker() {
+      metricsMeta.forEach(metric => {
+        const value = state.scores[metric.key];
+        const shown = value > 0 ? `+${value}` : `${value}`;
+        document.getElementById(`score-${metric.key}`).textContent = shown;
+        const pct = Math.max(0, Math.min(100, 50 + value * 8));
+        document.getElementById(`fill-${metric.key}`).style.width = `${pct}%`;
+      });
+      stageCounterEl.textContent = `${state.currentStage} / ${stages.length}`;
+      stages.forEach((_, index) => {
+        const dot = document.getElementById(`dot-${index}`);
+        dot.className = 'dot';
+        if (index < state.currentStage) dot.classList.add('done');
+        if (index === state.currentStage && state.currentStage < stages.length) dot.classList.add('active');
+      });
+      if (state.currentStage === stages.length) {
+        const lastDot = document.getElementById(`dot-${stages.length - 1}`);
+        if (lastDot) lastDot.className = 'dot done';
+      }
+    }
+
+    function renderStage() {
+      if (state.currentStage >= stages.length) {
+        showResults();
+        return;
+      }
+
+      const stage = stages[state.currentStage];
+      gameScreen.classList.remove('hidden');
+      introScreen.classList.add('hidden');
+      resultScreen.classList.add('hidden');
+
+      gameScreen.innerHTML = `
+        <article class="panel screen">
+          <div class="screen-top">
+            <div>
+              <p class="tag">Stage ${stage.stage}</p>
+              <h2>${stage.title}</h2>
+            </div>
+            <p class="tradeoff">Trade-off: ${stage.tradeoff}</p>
+          </div>
+          <div class="prompt">
+            <div class="prompt-card">
+              <h3>Scenario</h3>
+              <p>${stage.prompt}</p>
+            </div>
+          </div>
+          <div class="choices" id="choiceList">
+            ${stage.options.map(option => `
+              <button class="choice" type="button" data-option="${option.id}">
+                <span class="label">Option ${option.id}</span>
+                <strong>${option.title}</strong>
+                <span>${option.text}</span>
+              </button>
+            `).join('')}
+          </div>
+          <div class="feedback-area" id="feedbackArea" aria-live="polite"></div>
+          <div class="footer-actions">
+            <p class="status" id="stageStatus">Choose one intervention to continue.</p>
+            <button class="primary-btn hidden" id="nextBtn" type="button">Continue to next stage</button>
+          </div>
+        </article>
+      `;
+
+      const choiceButtons = [...document.querySelectorAll('.choice')];
+      const feedbackArea = document.getElementById('feedbackArea');
+      const nextBtn = document.getElementById('nextBtn');
+      const stageStatus = document.getElementById('stageStatus');
+
+      choiceButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (button.classList.contains('selected')) return;
+          const selected = stage.options.find(option => option.id === button.dataset.option);
+          state.history.push({ stage: stage.stage, title: stage.title, choice: selected.title, option: selected.id, feedback: selected.feedback, scores: selected.scores });
+          Object.keys(state.scores).forEach(key => {
+            state.scores[key] += selected.scores[key] || 0;
+          });
+          state.currentStage += 1;
+          renderTracker();
+
+          choiceButtons.forEach(btn => {
+            btn.disabled = true;
+            btn.classList.toggle('selected', btn === button);
+            btn.classList.toggle('dimmed', btn !== button);
+          });
+
+          feedbackArea.innerHTML = `
+            <div class="feedback-card">
+              <h3>What happened</h3>
+              <p>${selected.feedback}</p>
+              <p><strong>Next challenge:</strong> ${stage.bridge}</p>
+            </div>
+            <div class="summary-card">
+              <h3>Wellbeing effects</h3>
+              <ul class="impact-list">
+                ${selected.impacts.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+              <div class="mini-table">
+                ${metricsMeta.map(metric => {
+                  const delta = selected.scores[metric.key] || 0;
+                  const label = delta > 0 ? `+${delta}` : `${delta}`;
+                  const width = Math.max(0, Math.min(100, 50 + delta * 22));
+                  return `
+                    <div class="row">
+                      <span>${metric.label}</span>
+                      <div class="track"><span style="width:${width}%; background:${metric.color}"></span></div>
+                      <strong>${label}</strong>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          `;
+          feedbackArea.classList.add('visible');
+          nextBtn.classList.remove('hidden');
+          nextBtn.focus();
+          stageStatus.textContent = `You chose option ${selected.id}. Review the consequence, then continue.`;
+        });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        renderStage();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    function evaluateOutcome() {
+      const s = state.scores;
+      const values = Object.values(s);
+      const total = values.reduce((a, b) => a + b, 0);
+      const min = Math.min(...values);
+      const equityLow = s.equity <= 1;
+      const resilienceLow = s.resilience <= 1;
+      const incomeHigh = s.income >= 6;
+
+      let key = 'gaps';
+      if (min >= 2 && Object.values(s).filter(v => v >= 5).length >= 3) key = 'balanced';
+      else if ((equityLow && incomeHigh) || s.equity < 0) key = 'uneven';
+      else if ((resilienceLow && total < 12) || (resilienceLow && equityLow)) key = 'shortterm';
+      else key = 'gaps';
+
+      return outcomeCards.find(card => card.key === key);
+    }
+
+    function showResults() {
+      gameScreen.classList.add('hidden');
+      resultScreen.classList.remove('hidden');
+      const outcome = evaluateOutcome();
+      resultTitleEl.textContent = outcome.title;
+      resultSummaryEl.innerHTML = `
+        <h3>${outcome.title}</h3>
+        <p>${outcome.text}</p>
+      `;
+
+      scoreBreakdownEl.innerHTML = metricsMeta.map(metric => {
+        const value = state.scores[metric.key];
+        const label = value > 0 ? `+${value}` : `${value}`;
+        const width = Math.max(0, Math.min(100, 50 + value * 8));
+        return `
+          <div class="row">
+            <span>${metric.label}</span>
+            <div class="track"><span style="width:${width}%; background:${metric.color}"></span></div>
+            <strong>${label}</strong>
+          </div>
+        `;
+      }).join('');
+
+      [...endingCardsEl.querySelectorAll('.result-card')].forEach(card => {
+        card.classList.toggle('active', card.dataset.outcome === outcome.key);
+      });
+
+      historyListEl.innerHTML = '<h3>Decision pathway</h3>' + state.history.map(item => `
+        <article class="history-item">
+          <h4>Stage ${item.stage}: ${item.title}</h4>
+          <p><strong>Choice ${item.option}:</strong> ${item.choice}</p>
+          <p>${item.feedback}</p>
+        </article>
+      `).join('');
+
+      resultStatusEl.textContent = `You completed all ${stages.length} stages and created a ${outcome.title.toLowerCase()} pathway.`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function restartGame() {
+      state = initialState();
+      introScreen.classList.remove('hidden');
+      gameScreen.classList.add('hidden');
+      resultScreen.classList.add('hidden');
+      renderTracker();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('startBtn').addEventListener('click', renderStage);
+    document.getElementById('restartTop').addEventListener('click', restartGame);
+    document.getElementById('restartBottom').addEventListener('click', restartGame);
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      document.getElementById('themeToggle').textContent = next === 'dark' ? '☀' : '◐';
+    });
+
+    (function initTheme() {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      document.getElementById('themeToggle').textContent = prefersDark ? '☀' : '◐';
+    })();
+
+    setupShell();
+    restartGame();
+  </script>
+</body>
+</html>
